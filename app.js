@@ -10,6 +10,10 @@ app.set("view engine", "pug");
 const indexRouter = require("./app_server/routes/index");
 app.use("/courses", indexRouter);
 
+app.get("/", (req, res) => {
+  res.redirect(301, "/courses");
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
